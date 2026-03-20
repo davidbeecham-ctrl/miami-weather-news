@@ -4,11 +4,17 @@ A beautiful, responsive web app showing current weather conditions and latest ne
 
 ## Features
 
+- 🔐 **Secure Login** - Protected access with username/password authentication
 - 🌤️ **Real-time Weather** - Current conditions, temperature, humidity, wind, and pressure
 - 📰 **Miami News** - Latest local news and updates  
 - 📱 **Responsive Design** - Works great on desktop and mobile
 - 🔄 **Auto-refresh** - Weather updates every 15 minutes
 - 🎨 **Beautiful UI** - Clean, modern design with glass-morphism effects
+
+## Login Credentials
+
+- **Username:** `vip`  
+- **Password:** `vip123`
 
 ## Tech Stack
 
