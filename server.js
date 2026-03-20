@@ -55,8 +55,18 @@ app.get('/api/news', (req, res) => {
     res.json(sampleNews);
 });
 
-// Default route
+// Login route
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'login.html'));
+});
+
+// Default route (redirect to login first)
 app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'login.html'));
+});
+
+// Main app route (after login)
+app.get('/app', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 

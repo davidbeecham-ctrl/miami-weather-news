@@ -158,6 +158,10 @@
         <div class="header">
             <h1>🌴 Miami Weather & News</h1>
             <p>Stay updated with the Magic City</p>
+            <div style="margin-top: 15px;">
+                <span style="color: rgba(255,255,255,0.8); margin-right: 15px;">Welcome, <span id="username">VIP</span>!</span>
+                <button onclick="logout()" style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 0.9rem;">Logout</button>
+            </div>
         </div>
         
         <div class="grid">
@@ -328,8 +332,31 @@
             }, 15 * 60 * 1000);
         }
         
+        // Authentication functions
+        function checkAuth() {
+            if (localStorage.getItem('miamiAppLoggedIn') !== 'true') {
+                window.location.href = '/login';
+                return false;
+            }
+            
+            // Set username in header
+            const user = localStorage.getItem('miamiAppUser') || 'VIP';
+            document.getElementById('username').textContent = user.toUpperCase();
+            return true;
+        }
+        
+        function logout() {
+            localStorage.removeItem('miamiAppLoggedIn');
+            localStorage.removeItem('miamiAppUser');
+            window.location.href = '/login';
+        }
+        
         // Start the app
-        document.addEventListener('DOMContentLoaded', init);
+        document.addEventListener('DOMContentLoaded', () => {
+            if (checkAuth()) {
+                init();
+            }
+        });
     </script>
 </body>
 </html>
